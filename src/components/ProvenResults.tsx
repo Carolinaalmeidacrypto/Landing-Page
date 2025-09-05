@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, TrendingUp, Target, DollarSign } from 'lucide-react';
+import { BarChart, TrendingUp, Target, DollarSign, Zap } from 'lucide-react';
 
 const ProvenResults = () => {
   const stats = [
@@ -59,28 +59,32 @@ const ProvenResults = () => {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center hover:border-slate-600 transition-all group">
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl border flex items-center justify-center ${getColorClasses(stat.color)}`}>
-                  <Icon className="h-8 w-8" />
+              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center hover:border-slate-600 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group cursor-pointer hover:-translate-y-2">
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl border flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all ${getColorClasses(stat.color)}`}>
+                  <Icon className="h-8 w-8 group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="text-gray-400 text-sm mb-2">{stat.title}</div>
-                <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>
+                <div className="text-4xl font-bold text-white mb-2 group-hover:scale-125 group-hover:text-cyan-400 transition-all">{stat.value}</div>
                 <div className="text-gray-500 text-sm">{stat.description}</div>
               </div>
             );
           })}
         </div>
         
-        <div className="bg-gradient-to-r from-slate-800 to-slate-700 border border-slate-600 rounded-2xl p-8 lg:p-12">
+        <div className="bg-gradient-to-r from-slate-800 to-slate-700 border border-slate-600 rounded-2xl p-8 lg:p-12 hover:border-slate-500 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group cursor-pointer">
           <div className="text-center">
-            <div className="text-4xl mb-4">🚀</div>
-            <h3 className="text-3xl font-bold text-white mb-4">
+            <div className="text-4xl mb-4 group-hover:animate-bounce">🚀</div>
+            <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
               From $1,000 to $50,000+ in 8 Months
             </h3>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto group-hover:text-gray-200 transition-colors">
               That's what a 504.84% return means in real money. Stop dreaming about financial 
               freedom and start achieving it.
             </p>
+            <div className="mt-6 flex items-center justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Zap className="h-5 w-5 text-yellow-400" />
+              <span className="text-yellow-400 font-medium">Click to see breakdown</span>
+            </div>
           </div>
         </div>
       </div>

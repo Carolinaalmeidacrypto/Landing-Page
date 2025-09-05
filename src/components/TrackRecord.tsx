@@ -28,46 +28,46 @@ const TrackRecord = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-2">
-                <BarChart3 className="h-5 w-5 text-white" />
+                <BarChart3 className="h-5 w-5 text-white group-hover:text-emerald-400 group-hover:scale-110 transition-all" />
                 <h3 className="text-white text-xl font-semibold">Monthly Returns (%)</h3>
               </div>
-              <div className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm">
+              <div className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm hover:bg-emerald-500/30 hover:scale-105 transition-all cursor-pointer">
                 Avg: 66.8%
               </div>
             </div>
             
             <div className="space-y-4">
               {monthlyData.map((data, index) => (
-                <div key={index} className="flex items-center space-x-4">
+                <div key={index} className="flex items-center space-x-4 hover:bg-slate-700/30 rounded-lg p-2 transition-all cursor-pointer group">
                   <div className="text-gray-400 text-sm w-16">{data.month}</div>
-                  <div className="flex-1 bg-slate-700 rounded-full h-8 overflow-hidden">
+                  <div className="flex-1 bg-slate-700 rounded-full h-8 overflow-hidden hover:bg-slate-600 transition-colors">
                     <div 
-                      className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full flex items-center justify-end pr-2 transition-all duration-1000"
+                      className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full flex items-center justify-end pr-2 transition-all duration-1000 hover:from-emerald-400 hover:to-emerald-300"
                       style={{ width: `${(data.value / maxValue) * 100}%` }}
                     >
                       {data.value > 30 && (
-                        <span className="text-white text-xs font-medium">{data.value}%</span>
+                        <span className="text-white text-xs font-medium group-hover:font-bold transition-all">{data.value}%</span>
                       )}
                     </div>
                   </div>
                   {data.value <= 30 && (
-                    <span className="text-gray-300 text-sm w-12">{data.value}%</span>
+                    <span className="text-gray-300 text-sm w-12 group-hover:text-white group-hover:font-medium transition-all">{data.value}%</span>
                   )}
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-2">
-                <TrendingUp className="h-5 w-5 text-emerald-400" />
+                <TrendingUp className="h-5 w-5 text-emerald-400 group-hover:scale-110 group-hover:rotate-12 transition-all" />
                 <h3 className="text-white text-xl font-semibold">Cumulative Growth (%)</h3>
               </div>
-              <div className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm">
+              <div className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm hover:bg-emerald-500/30 hover:scale-105 transition-all cursor-pointer">
                 Total: 533.65%
               </div>
             </div>
@@ -97,15 +97,15 @@ const TrackRecord = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-emerald-400 mb-2">191.51%</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-2 hover:scale-110 hover:text-emerald-300 transition-all cursor-pointer">191.51%</div>
             <div className="text-gray-400">Best Month (July)</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-emerald-400 mb-2">8/8</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-2 hover:scale-110 hover:text-emerald-300 transition-all cursor-pointer">8/8</div>
             <div className="text-gray-400">Profitable Months</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-emerald-400 mb-2">5.3x</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-2 hover:scale-110 hover:text-emerald-300 transition-all cursor-pointer">5.3x</div>
             <div className="text-gray-400">Account Multiplier</div>
           </div>
         </div>

@@ -41,18 +41,18 @@ const Testimonials = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all">
+            <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group cursor-pointer hover:-translate-y-2">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current hover:scale-125 hover:rotate-12 transition-all cursor-pointer" />
                 ))}
               </div>
               
-              <blockquote className="text-gray-300 mb-8 italic">
+              <blockquote className="text-gray-300 mb-8 italic group-hover:text-gray-200 transition-colors">
                 "{testimonial.quote}"
               </blockquote>
               
-              <div className="bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 px-6 py-3 rounded-full text-center font-bold text-lg mb-6">
+              <div className="bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 px-6 py-3 rounded-full text-center font-bold text-lg mb-6 group-hover:bg-emerald-500/30 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-emerald-500/25 transition-all">
                 {testimonial.profit} profit
               </div>
               
@@ -60,24 +60,24 @@ const Testimonials = () => {
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover group-hover:scale-110 group-hover:ring-2 group-hover:ring-cyan-400 transition-all"
                 />
                 <div>
-                  <div className="text-white font-semibold">{testimonial.name}</div>
-                  <div className="text-gray-400 text-sm">{testimonial.role}</div>
+                  <div className="text-white font-semibold group-hover:text-cyan-400 transition-colors">{testimonial.name}</div>
+                  <div className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{testimonial.role}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center">
+        <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center hover:border-slate-600 hover:shadow-2xl hover:shadow-slate-900/50 transition-all group cursor-pointer">
           <h3 className="text-2xl font-bold text-white mb-4">Join 10,000+ Successful Traders</h3>
-          <div className="flex items-center justify-center space-x-6 text-gray-300">
+          <div className="flex items-center justify-center space-x-6 text-gray-300 group-hover:text-gray-200 transition-colors">
             <div className="flex items-center space-x-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current hover:scale-110 hover:rotate-12 transition-all cursor-pointer" />
                 ))}
               </div>
               <span>4.9/5 rating</span>

@@ -39,14 +39,17 @@ const Community = () => {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-12 text-center hover:border-cyan-500/50 transition-all group">
-                <div className="w-20 h-20 bg-cyan-500/20 border border-cyan-500/30 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform">
-                  <Icon className="h-10 w-10 text-cyan-400" />
+              <div key={index} className="bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-12 text-center hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all group cursor-pointer hover:-translate-y-4">
+                <div className="w-20 h-20 bg-cyan-500/20 border border-cyan-500/30 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-125 group-hover:rotate-12 group-hover:bg-cyan-500/30 transition-all">
+                  <Icon className="h-10 w-10 text-cyan-400 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="text-5xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                <div className="text-5xl font-bold text-white mb-4 group-hover:text-cyan-400 group-hover:scale-110 transition-all">
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-lg">{stat.label}</div>
+                <div className="text-gray-400 text-lg group-hover:text-gray-300 transition-colors">{stat.label}</div>
+                <div className="mt-4 w-full h-1 bg-slate-700 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000"></div>
+                </div>
               </div>
             );
           })}

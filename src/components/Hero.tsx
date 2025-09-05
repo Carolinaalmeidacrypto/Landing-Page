@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Users, Shield } from 'lucide-react';
+import { TrendingUp, Users, Shield, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,21 +22,22 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center">
+              <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25 flex items-center justify-center group">
                 Get Winning Signals Now
-                <TrendingUp className="ml-2 h-5 w-5" />
+                <TrendingUp className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               </button>
-              <button className="border-2 border-gray-600 text-gray-300 hover:bg-gray-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
-                View Demo
+              <button className="border-2 border-gray-600 text-gray-300 hover:bg-gray-700 hover:border-gray-500 px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center group">
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Watch Demo
               </button>
             </div>
             
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 bg-emerald-500 rounded-full border-2 border-slate-900"></div>
-                  <div className="w-8 h-8 bg-purple-500 rounded-full border-2 border-slate-900"></div>
-                  <div className="w-8 h-8 bg-orange-500 rounded-full border-2 border-slate-900"></div>
+                  <div className="w-8 h-8 bg-emerald-500 rounded-full border-2 border-slate-900 hover:scale-110 transition-transform cursor-pointer"></div>
+                  <div className="w-8 h-8 bg-purple-500 rounded-full border-2 border-slate-900 hover:scale-110 transition-transform cursor-pointer"></div>
+                  <div className="w-8 h-8 bg-orange-500 rounded-full border-2 border-slate-900 hover:scale-110 transition-transform cursor-pointer"></div>
                 </div>
                 <span className="text-gray-400 text-sm">Trusted by 10,000+ traders</span>
               </div>
@@ -47,37 +48,37 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all hover:shadow-2xl hover:shadow-slate-900/50">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-white text-xl font-semibold">Live Performance Dashboard</h3>
-              <div className="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                <TrendingUp className="h-4 w-4 mr-1" />
+              <div className="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center hover:bg-emerald-400 transition-colors cursor-pointer">
+                <TrendingUp className="h-4 w-4 mr-1 animate-pulse" />
                 +191.51%
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div>
-                <div className="text-3xl font-bold text-emerald-400">504.84%</div>
+                <div className="text-3xl font-bold text-emerald-400 hover:scale-110 transition-transform cursor-pointer">504.84%</div>
                 <div className="text-gray-400 text-sm">Total Profit</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-cyan-400">65.9%</div>
+                <div className="text-3xl font-bold text-cyan-400 hover:scale-110 transition-transform cursor-pointer">65.9%</div>
                 <div className="text-gray-400 text-sm">Win Rate</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-white">965</div>
+                <div className="text-3xl font-bold text-white hover:scale-110 transition-transform cursor-pointer">965</div>
                 <div className="text-gray-400 text-sm">Total Trades</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-purple-400">$2M+</div>
+                <div className="text-3xl font-bold text-purple-400 hover:scale-110 transition-transform cursor-pointer">$2M+</div>
                 <div className="text-gray-400 text-sm">Volume</div>
               </div>
             </div>
             
             <div className="bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-xl p-4">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse hover:animate-bounce cursor-pointer"></div>
                 <span className="text-emerald-400 font-medium">Live Trading Active</span>
               </div>
             </div>
