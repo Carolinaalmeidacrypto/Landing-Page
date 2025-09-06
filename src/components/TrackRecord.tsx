@@ -3,25 +3,25 @@ import { BarChart3, TrendingUp } from 'lucide-react';
 
 const TrackRecord = () => {
   const monthlyData = [
-    { month: '2025-01', value: 7.15, barHeight: 80 },
-    { month: '2025-02', value: 53.09, barHeight: 125 },
-    { month: '2025-03', value: 85.96, barHeight: 155 },
-    { month: '2025-04', value: 16.89, barHeight: 90 },
-    { month: '2025-05', value: 102.43, barHeight: 175 },
-    { month: '2025-06', value: 36.73, barHeight: 110 },
-    { month: '2025-07', value: 191.51, barHeight: 220 },
-    { month: '2025-08', value: 38.38, barHeight: 115 }
+    { month: '2025-01', value: 7.15, height: 15 },
+    { month: '2025-02', value: 53.09, height: 45 },
+    { month: '2025-03', value: 85.96, height: 65 },
+    { month: '2025-04', value: 16.89, height: 20 },
+    { month: '2025-05', value: 102.43, height: 75 },
+    { month: '2025-06', value: 36.73, height: 35 },
+    { month: '2025-07', value: 191.51, height: 95 },
+    { month: '2025-08', value: 38.38, height: 38 }
   ];
 
   const cumulativeData = [
-    { month: '2025-01', value: 7.15, x: 12.5, y: 92 },
-    { month: '2025-02', value: 60.24, x: 25, y: 85 },
-    { month: '2025-03', value: 142.57, x: 37.5, y: 76 },
-    { month: '2025-04', value: 163.09, x: 50, y: 73 },
-    { month: '2025-05', value: 265.52, x: 62.5, y: 56 },
-    { month: '2025-06', value: 298.25, x: 75, y: 50 },
-    { month: '2025-07', value: 493.76, x: 87.5, y: 18 },
-    { month: '2025-08', value: 533.65, x: 100, y: 11 }
+    { month: '2025-01', value: 7.15, x: 50, y: 180 },
+    { month: '2025-02', value: 60.24, x: 100, y: 160 },
+    { month: '2025-03', value: 142.57, x: 150, y: 130 },
+    { month: '2025-04', value: 163.09, x: 200, y: 125 },
+    { month: '2025-05', value: 265.52, x: 250, y: 90 },
+    { month: '2025-06', value: 298.25, x: 300, y: 80 },
+    { month: '2025-07', value: 493.76, x: 350, y: 40 },
+    { month: '2025-08', value: 533.65, x: 400, y: 35 }
   ];
 
   return (
@@ -49,9 +49,9 @@ const TrackRecord = () => {
               </div>
             </div>
             
-            <div className="relative h-80 bg-slate-900/50 rounded-xl p-6">
-              {/* Y-axis */}
-              <div className="absolute left-2 top-6 bottom-12 flex flex-col justify-between text-xs text-gray-400">
+            <div className="relative h-80 bg-slate-900/50 rounded-xl p-4">
+              {/* Y-axis labels */}
+              <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-400 py-4">
                 <span>236</span>
                 <span>88</span>
                 <span>8</span>
@@ -59,38 +59,32 @@ const TrackRecord = () => {
               </div>
               
               {/* Grid lines */}
-              <div className="absolute left-12 right-6 top-6 bottom-12">
+              <div className="absolute inset-4 left-8">
                 <div className="h-full flex flex-col justify-between">
-                  <div className="border-t border-slate-700/30"></div>
-                  <div className="border-t border-slate-700/30"></div>
-                  <div className="border-t border-slate-700/30"></div>
-                  <div className="border-t border-slate-700/30"></div>
+                  <div className="border-t border-slate-700/50"></div>
+                  <div className="border-t border-slate-700/50"></div>
+                  <div className="border-t border-slate-700/50"></div>
+                  <div className="border-t border-slate-700/50"></div>
                 </div>
               </div>
               
               {/* Bars */}
-              <div className="absolute left-12 right-6 bottom-12 flex items-end justify-between" style={{ height: '240px' }}>
+              <div className="absolute inset-4 left-8 flex items-end justify-between">
                 {monthlyData.map((data, index) => (
                   <div key={index} className="flex flex-col items-center group/bar cursor-pointer">
                     <div className="relative">
                       <div 
-                        className="w-8 bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t hover:from-emerald-500 hover:to-emerald-300 transition-all duration-300 group-hover/bar:scale-110 group-hover/bar:shadow-lg group-hover/bar:shadow-emerald-500/50"
-                        style={{ height: `${data.barHeight}px` }}
+                        className="w-8 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t hover:from-emerald-400 hover:to-emerald-300 transition-all duration-300 group-hover/bar:scale-110"
+                        style={{ height: `${data.height * 2.5}px` }}
                       ></div>
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap border border-emerald-500/30">
+                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-emerald-400 px-2 py-1 rounded text-xs opacity-0 group-hover/bar:opacity-100 transition-opacity whitespace-nowrap">
                         {data.value}%
                       </div>
                     </div>
+                    <span className="text-xs text-gray-400 mt-2 transform -rotate-45 origin-left">
+                      {data.month}
+                    </span>
                   </div>
-                ))}
-              </div>
-              
-              {/* X-axis labels */}
-              <div className="absolute left-12 right-6 bottom-0 flex justify-between text-xs text-gray-400">
-                {monthlyData.map((data, index) => (
-                  <span key={index} className="transform -rotate-45 origin-left">
-                    {data.month}
-                  </span>
                 ))}
               </div>
             </div>
@@ -108,9 +102,9 @@ const TrackRecord = () => {
               </div>
             </div>
             
-            <div className="relative h-80 bg-slate-900/50 rounded-xl p-6">
-              {/* Y-axis */}
-              <div className="absolute left-2 top-6 bottom-12 flex flex-col justify-between text-xs text-gray-400">
+            <div className="relative h-80 bg-slate-900/50 rounded-xl p-4">
+              {/* Y-axis labels */}
+              <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-400 py-4">
                 <span>600</span>
                 <span>500</span>
                 <span>400</span>
@@ -120,15 +114,13 @@ const TrackRecord = () => {
                 <span>0</span>
               </div>
               
-              {/* Grid */}
-              <div className="absolute left-12 right-6 top-6 bottom-12">
-                {/* Horizontal grid lines */}
+              {/* Grid lines */}
+              <div className="absolute inset-4 left-8">
                 <div className="h-full flex flex-col justify-between">
                   {[...Array(7)].map((_, i) => (
                     <div key={i} className="border-t border-slate-700/30"></div>
                   ))}
                 </div>
-                {/* Vertical grid lines */}
                 <div className="absolute inset-0 flex justify-between">
                   {[...Array(9)].map((_, i) => (
                     <div key={i} className="border-l border-slate-700/30 h-full"></div>
@@ -137,16 +129,15 @@ const TrackRecord = () => {
               </div>
               
               {/* Line Chart */}
-              <div className="absolute left-12 right-6 top-6 bottom-12">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <div className="absolute inset-4 left-8">
+                <svg className="w-full h-full" viewBox="0 0 450 250">
                   {/* Line path */}
-                  <polyline
-                    points={cumulativeData.map(d => `${d.x},${d.y}`).join(' ')}
+                  <path
+                    d={`M ${cumulativeData.map(d => `${d.x} ${d.y}`).join(' L ')}`}
                     stroke="#fbbf24"
-                    strokeWidth="0.8"
+                    strokeWidth="3"
                     fill="none"
                     className="drop-shadow-lg"
-                    vectorEffect="non-scaling-stroke"
                   />
                   
                   {/* Data points */}
@@ -155,34 +146,25 @@ const TrackRecord = () => {
                       <circle
                         cx={data.x}
                         cy={data.y}
-                        r="1.5"
+                        r="6"
                         fill="#fbbf24"
-                        className="hover:r-2 transition-all cursor-pointer drop-shadow-lg"
-                        vectorEffect="non-scaling-stroke"
+                        className="hover:r-8 hover:fill-yellow-300 transition-all cursor-pointer drop-shadow-lg"
                       />
+                      <text
+                        x={data.x}
+                        y={data.y - 15}
+                        textAnchor="middle"
+                        className="fill-emerald-400 text-xs font-medium opacity-0 hover:opacity-100 transition-opacity"
+                      >
+                        {data.value}%
+                      </text>
                     </g>
                   ))}
                 </svg>
-                
-                {/* Hover labels */}
-                {cumulativeData.map((data, index) => (
-                  <div
-                    key={index}
-                    className="absolute w-4 h-4 -ml-2 -mt-2 cursor-pointer group/point"
-                    style={{ 
-                      left: `${data.x}%`, 
-                      top: `${data.y}%` 
-                    }}
-                  >
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-yellow-400 px-2 py-1 rounded text-xs opacity-0 group-hover/point:opacity-100 transition-opacity whitespace-nowrap border border-yellow-500/30">
-                      {data.value}%
-                    </div>
-                  </div>
-                ))}
               </div>
               
               {/* X-axis labels */}
-              <div className="absolute left-12 right-6 bottom-0 flex justify-between text-xs text-gray-400">
+              <div className="absolute bottom-0 left-8 right-4 flex justify-between text-xs text-gray-400">
                 {cumulativeData.map((data, index) => (
                   <span key={index} className="transform -rotate-45 origin-left">
                     {data.month}
